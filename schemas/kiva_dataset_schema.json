@@ -1,0 +1,74 @@
+{
+  "dataset": "Kaggle Data Science for Good: Kiva Crowdfunding",
+  "source": "https://www.kaggle.com/datasets/kiva/data-science-for-good-kiva-crowdfunding",
+  "files": {
+    "kiva_loans.csv": [
+      "id",
+      "funded_amount",
+      "loan_amount",
+      "activity",
+      "sector",
+      "use",
+      "country_code",
+      "country",
+      "region",
+      "currency",
+      "partner_id",
+      "posted_time",
+      "disbursed_time",
+      "funded_time",
+      "term_in_months",
+      "lender_count",
+      "tags",
+      "borrower_genders",
+      "repayment_interval",
+      "date"
+    ],
+    "kiva_mpi_region_locations.csv": [
+      "LocationName",
+      "ISO",
+      "country",
+      "region",
+      "world_region",
+      "MPI",
+      "geo",
+      "lat",
+      "lon"
+    ],
+    "loan_theme_ids.csv": [
+      "id",
+      "Loan Theme ID",
+      "Loan Theme Type",
+      "Partner ID"
+    ],
+    "loan_themes_by_region.csv": [
+      "Partner ID",
+      "Field Partner Name",
+      "sector",
+      "Loan Theme ID",
+      "Loan Theme Type",
+      "country",
+      "forkiva",
+      "region",
+      "geocode_old",
+      "ISO",
+      "number",
+      "amount",
+      "LocationName",
+      "geocode",
+      "names",
+      "geo",
+      "lat",
+      "lon",
+      "mpi_region",
+      "mpi_geo",
+      "rural_pct"
+    ]
+  },
+  "notes": [
+    "These are the four CSV files belonging to the named Kaggle dataset.",
+    "Column names preserve source capitalization and spaces; do not normalize the raw files in place.",
+    "The walkthrough does not provide SQL Server CREATE TABLE definitions or data types. Infer or define curated types only after inspecting the downloaded CSVs.",
+    "The kiva_loans.csv table is the loan-level table used for the dashboard described in the walkthrough."
+  ]
+}
