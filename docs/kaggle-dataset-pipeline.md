@@ -4,7 +4,7 @@ This path processes the four original CSV files from Kaggle's Data Science for G
 
 ## Data layout
 
-Place the downloaded files in a local data/raw folder or equivalent ADLS Gen2 raw folder:
+The download script places the four files in the repository's data folder. Upload those files to the equivalent ADLS Gen2 raw folder:
 - kiva_loans.csv — loan-level records; use this as the grain for dashboard measures.
 - kiva_mpi_region_locations.csv — regional MPI and geography attributes.
 - loan_theme_ids.csv — loan-to-theme/partner mapping.
