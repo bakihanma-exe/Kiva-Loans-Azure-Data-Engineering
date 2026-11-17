@@ -25,7 +25,19 @@ Azure Key Vault stores the SQL Server credentials used by the ADF linked service
 - `synapse/create_serverless_view.sql`: parameterized view procedure template
 - `adf/pipeline-design.md`: orchestration and expressions
 - `powerbi/dashboard-design.md`: dashboard layout and KPI definitions
-- `tests/test_kiva_contract.py`: local source-contract tests
+- `schemas/kiva_dataset_schema.json`: exact raw CSV header contract for the four official Kaggle files
+- `data/README.md`: official dataset source and download instructions
+- `scripts/download_kiva_dataset.sh`: downloads only the named Kaggle dataset using the Kaggle CLI
+- `scripts/validate_kiva_dataset.py`: checks all four files and their exact headers
+- `tests/`: local source-contract and dataset validation tests
+
+## Dataset setup and validation
+1. Install the Kaggle CLI: `python -m pip install kaggle`.
+2. Configure your own Kaggle API credentials locally (never commit them).
+3. Run `bash scripts/download_kiva_dataset.sh` from the repository root.
+4. Run `python scripts/validate_kiva_dataset.py` to check the four official CSV headers.
+
+The source CSVs are not committed here because Kaggle requires account authorization to download the official archive. The repository contains the official dataset identifier, exact source-file names, header schema, and reproducible download script. No substitute dataset is used.
 
 ## Important implementation notes
 The walkthrough's sample source and storage names are environment-specific. Replace all placeholders with your own. Never copy credentials, access tokens, account keys, or secrets from screenshots or notebooks into Git. Prefer managed identity / workload identity and Key Vault. The old Databricks DBFS mount / credential-passthrough pattern shown in the walkthrough is legacy; use a currently supported secure storage access pattern in a new workspace.
