@@ -31,6 +31,19 @@ Azure Key Vault stores the SQL Server credentials used by the ADF linked service
 - `scripts/validate_kiva_dataset.py`: checks all four files and their exact headers
 - `tests/`: local source-contract and dataset validation tests
 
+
+## Dataset-aligned Kaggle execution path
+
+The source walkthrough's SQL Server-to-ADF architecture is retained above. Because the named Kaggle dataset is delivered as four CSV files, the repository now also includes a separate reproducible CSV-to-Delta medallion path:
+
+- `docs/kaggle-dataset-pipeline.md`: setup, execution order, design decisions and limitations
+- `notebooks/kaggle_bronze_ingestion.py`: four CSVs to Bronze Delta, preserving raw fields as strings
+- `notebooks/kaggle_bronze_to_silver.py`: curated types for loan fields and normalized supporting-table names
+- `notebooks/kaggle_silver_to_gold.py`: KPI, monthly, sector, country, repayment and borrower-gender aggregates
+- `sql/kiva_data_quality_checks.sql`: duplicate-key, null, amount, term and date checks
+
+This Kaggle path is a companion implementation, not a replacement for the walkthrough's SQL Server ingestion design. It is a full-refresh historical-snapshot workflow, not incremental CDC. Notebook paths are placeholders and the notebooks still require execution in a configured Databricks workspace. See the guide before running them.
+
 ## Dataset setup and validation
 1. Install the Kaggle CLI: `python -m pip install kaggle`.
 2. Configure your own Kaggle API credentials locally (never commit them).
