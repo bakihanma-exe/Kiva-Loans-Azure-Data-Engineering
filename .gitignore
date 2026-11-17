@@ -1,0 +1,14 @@
+# Original Kaggle dataset files (download locally; do not commit raw data)
+data/*.csv
+data/*.zip
+
+# Kaggle credentials
+kaggle.json
+.kaggle/
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
